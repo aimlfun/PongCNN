@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PongViewer": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\temp\\r7_nstep"
+    }
+  }
+}

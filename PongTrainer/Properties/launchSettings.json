@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PongTrainer": {
+      "commandName": "Project",
+      "commandLineArgs": "train 1500000 c:\\temp\\r7_nstep 2 double lrdecay buf=300000 trunc nstep=5 v2"
+    }
+  }
+}

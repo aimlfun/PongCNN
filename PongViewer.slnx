@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="PongTrainer/PongTrainer.csproj" />
+  <Project Path="PongViewer/PongViewer.csproj" />
+</Solution>

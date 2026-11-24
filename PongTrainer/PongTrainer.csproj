@@ -1,0 +1,50 @@
+<!--
+  BrainPong: a console app that trains a neural-network agent to play Pong
+  (a CNN-based DQN, plus an optional next-frame-prediction pretraining step).
+  The network, replay buffer and training loop are hand-written in C#, so this
+  project has no NuGet package references at all.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Exe = builds a runnable console program (rather than a class library .dll). -->
+    <OutputType>Exe</OutputType>
+
+    <!-- Target .NET 11. You need the matching SDK installed to build this. -->
+    <TargetFramework>net11.0</TargetFramework>
+
+    <!-- Adds common "using" directives (System, System.IO, System.Linq, ...) to every
+         file automatically, so source files don't need to repeat them. -->
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Turns on nullable reference types: the compiler warns where a reference
+         could be null and you haven't handled it. "string?" means "may be null". -->
+    <Nullable>enable</Nullable>
+
+    <!-- Name of the compiled output (BrainPong.exe / BrainPong.dll). -->
+    <AssemblyName>BrainPong</AssemblyName>
+
+    <!-- Default namespace used by new files created in this project. -->
+    <RootNamespace>BrainPong</RootNamespace>
+
+    <!-- Skips the OS/ICU culture data and always uses invariant formatting. Numbers
+         print the same on every machine (1.5, never 1,5), which keeps training logs
+         and saved files consistent and parseable. Also gives faster startup. -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+
+    <!-- Forces compiler optimisations on in every configuration, including Debug.
+         Training runs millions of tight numeric loops, which are far too slow
+         unoptimised. Trade-off: stepping through code in the debugger can look odd
+         (variables optimised away). Set to false if you need to debug. -->
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Lets the BrainPongViewer project (the WinForms visualiser) use this project's
+         "internal" types. Without this, internal classes like the network and
+         environment would be invisible to it. The name must match the viewer's
+         assembly name exactly. -->
+    <InternalsVisibleTo Include="BrainPongViewer" />
+  </ItemGroup>
+
+</Project>
