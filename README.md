@@ -7,17 +7,18 @@ This Pong uses double DQN, CNN, RL like DeepMind's but smaller. It works, just a
 The screen is 40x40 px.
 
 CNN  - >CNN  -> NN   -> NN  -> ACTION
+
 6400 -> 2592 -> 1024 -> 128 -> 3 = stay,up,down [argmax()]
 
 i.e.
 CNN1: 4 frames x (40px x 40px) kernel 6x6 stride 2 => 8 output channels (18x18) ReLU
-|
+:
 CNN2: 8 x (18 x 18) kernel 4x4 stride 2 => 16 channels (8x8) ReLU
-|
+:
 Dense (all inputs connected to all outputs) in: 1024 out: 128 relReLU
-|
+:
 Dense (all inputs connected to all outputs) in: 128 out: 3 (no ReLU)
-|
+:
 ACTIONS
 
 ---
